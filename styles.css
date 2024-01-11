@@ -12,6 +12,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+
+
+
+
 .center-box {
     width: 50%;
     padding: 30px;
@@ -69,6 +73,7 @@ body {
     font-size: 20px !important;
 }
 
+
 :root {
     --background-color: #282c34;
     --text-color: #fff;
@@ -113,16 +118,10 @@ body.light-theme {
     background: #555;
 }
 
-button {
-    background-color: blue;
-    transition: background-color 0.5s ease, transform 0.3s ease;
+@font-face {
+    font-family: 'VT323-Regular';
+    src: url('fonts/VT323-Regular.ttf') format('truetype');
 }
-
-button:hover {
-    background-color: red;
-    transform: scale(1.1);
-}
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -168,17 +167,160 @@ body.light-theme .settings button:active {
     font-family: 'Fira Code', monospace; 
 }
 
-document.getElementById("start-capture").addEventListener("click", function() {
-  var code = editor.getValue();
-  var codeElement = document.querySelector(".CodeMirror");
 
-  // Apply the typewriter effect
-  codeElement.classList.add("typewriter");
+#start-capture {
+    position: relative;
+    z-index: 10001;
+}
 
-  // Reset the effect after 4 seconds (the duration of the animation)
-  setTimeout(function() {
-    codeElement.classList.remove("typewriter");
-  }, 4000);
-});
+#popup {
+    position: fixed;
+    left: 2%;
+    top: 60%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 5px 10px;
+    background-color: #282a36 !important;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: none;
+    box-sizing: border-box;
+    font-family: 'Fira Code', monospace;
+    color: #f8f8f2;
+    animation: popup 0.5s ease-out;
+}
+
+#popup button,
+#popup label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+@keyframes popup {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+.focus-mode::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+#focus-mode {
+    position: relative;
+    z-index: 10000;
+}
+
+.focus-mode .CodeMirror {
+    z-index: 9999;
+}
+.focus-mode #focus-mode {
+    z-index: 10000;
+}
+
+.focus-mode::before {
+    opacity: 1;
+}
 
 
+.CodeMirror-bottompanel {
+    background: transparent;
+    text-align: right;
+}
+
+#github-logo {
+    width: 30px;
+    height: 30px;
+}
+
+/* Add this to your CSS file */
+#user-link {
+    /* Style the input field as needed */
+}
+
+#display-link {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: grey;
+    background-color: transparent;
+    /* Add more styles as needed */
+}
+
+/* Add this to your CSS file */
+.link-widget {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 2px; /* Add padding to prevent overlap with the code */
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background to make the text more readable */
+    color: grey; /* Change the text color to white for better contrast */
+}
+
+
+.CodeMirror-gutter-wrapper::before {
+    content: "•";
+    color: #ddd; /* Change this to match your theme */
+    display: none;
+    padding-right: 5px;
+  }
+  
+  .CodeMirror-gutter-wrapper.wrapped::before {
+    display: inline;
+  }
+
+ 
+  .donation-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    text-align: right;
+}
+
+.gif-box {
+    position: absolute;
+    top: 50pxpx; 
+    left: 6px; 
+    width: 300px; 
+    padding: 20px;
+    border-radius: 10px;
+    background:transparent;
+    border: 1px solid #000; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.gif-box img {
+    width: 100%;
+    height: auto;
+    pixelated: true;
+    border-radius: 10px;
+    border
+}
+
+
+
+  .support a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.support img {
+    margin-bottom: 10px;
+}

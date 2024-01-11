@@ -1,3 +1,4 @@
+
 var editor = CodeMirror(document.getElementById("code-snippet"), {
   lineNumbers: true,
   theme: "dracula", // Set the theme
@@ -22,18 +23,15 @@ editor.setValue(editor.getValue() || defaultCode);
 
 // Function to update the height of the editor
 function updateEditorHeight() {
-  var scrollInfo = editor.getScrollInfo();
-  var maxHeight = 500; // Set this to the maximum height you want
-
-  // Calculate the new height, but don't exceed the maximum
-  var newHeight = Math.min(scrollInfo.height, maxHeight);
-
-  editor.setSize(null, newHeight + "px");
-}
-
-// Rest of your code...
-// Set the initial height of the editor to match its content
-updateEditorHeight();
+                    var lineHeight = editor.defaultTextHeight(); // get the height of a line in pixels
+                    var lines = editor.lineCount() + 2; // get the number of lines in the code and add 2
+                    var newHeight = lineHeight * lines; // calculate the new height
+                  
+                    editor.setSize(null, newHeight + "px");
+                  }
+                  
+                  // Set the initial height of the editor to match its content
+                  updateEditorHeight();
 
 // Update the height of the editor whenever its content changes
 editor.on("change", updateEditorHeight);
@@ -108,8 +106,35 @@ document.getElementById("copy").addEventListener("click", function() {
     console.error('Could not copy text: ', err);
   });
 });
-
-
-particlesJS.load('particles-js', 'path_to/particles.json', function() {
-  console.log('particles.js loaded - callback');
-});
+document.getElementById("start-capture").addEventListener("click", function() {
+                    var code = editor.getValue();
+                    var delay = 50; // delay in ms between each character
+                    var lineHeight = editor.defaultTextHeight(); // get the height of a line in pixels
+                    var lines = code.split('\n').length;
+                    var defaultLines = editor.lineCount(); // get the number of lines in the default code
+                    editor.setValue(''); // clear the editor
+                    editor.setSize(null, (defaultLines * lineHeight) + 'px'); // set the initial height to match the default code
+                  
+                    // Function to append characters one by one
+                    function typeWriter(text, i) {
+                      if (i < text.length) {
+                        if (text.charAt(i) === '\n') {
+                          var currentHeight = parseInt(editor.getWrapperElement().style.height, 10);
+                          editor.setSize(null, (currentHeight + lineHeight) + 'px');
+                        }
+                        editor.replaceRange(text.charAt(i), CodeMirror.Pos(editor.lastLine()));
+                        setTimeout(function() {
+                          typeWriter(text, i + 1);
+                        }, delay);
+                      } else {
+                        var totalLines = editor.lineCount(); // get the total number of lines in the code
+                        editor.setSize(null, ((totalLines + 1) * lineHeight) + 'px'); // set the height to match the full code plus one line
+                        editor.replaceRange('\n', CodeMirror.Pos(editor.lastLine())); // add an extra line
+                        editor.setCursor({line: totalLines, ch: 0}); // set the cursor to the start of the extra line
+                        editor.execCommand('deleteLine'); // delete the extra line
+                      }
+                    }
+                  
+                    // Start the typewriter effect
+                    typeWriter(code, 0);
+                  });

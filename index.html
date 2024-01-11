@@ -29,7 +29,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/swift/swift.min.js"></script>
 </head>
 <body>
-    <div id="particles"></div>
     <div class="center-box">
         <div class="settings">
             <label for="theme">Theme:</label>
@@ -39,6 +38,7 @@
                 <option value="material">Material</option>
                 <option value="neat">Neat</option>
               </select>
+
             <label for="font-size">Font Size:</label>
             <label for="font-family">Font:</label>
             <select id="font-family">
@@ -62,11 +62,12 @@
               <button id="copy" class="material-icons">content_copy</button>            \
               <button id="download">Download as PNG</button>
               <button id="theme-toggle">Light Mode</button>
+              <button id="start-capture">Auto Type</button>
         <style>
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
-  'wght' 400,
+  'wght' 400,   
   'GRAD' 0,
   'opsz' 24
 }

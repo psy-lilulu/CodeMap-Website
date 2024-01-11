@@ -167,3 +167,18 @@ body.light-theme .settings button:active {
     color: #aaa;
     font-family: 'Fira Code', monospace; 
 }
+
+document.getElementById("start-capture").addEventListener("click", function() {
+  var code = editor.getValue();
+  var codeElement = document.querySelector(".CodeMirror");
+
+  // Apply the typewriter effect
+  codeElement.classList.add("typewriter");
+
+  // Reset the effect after 4 seconds (the duration of the animation)
+  setTimeout(function() {
+    codeElement.classList.remove("typewriter");
+  }, 4000);
+});
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Code Map</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <link rel="icon" href="images/WebsiteLogo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/material.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mattboldt/typed.js@2.0.11/lib/typed.min.js"></script>
+</head>
+<body>
+    <div class="center-box">
+        <div class="settings">
+            <label for="theme">Theme:</label>
+            <select id="theme">
+                <option value="default">Default</option>
+                <option value="monokai">Monokai</option>
+                <option value="material">Material</option>
+            </select>
+            <label for="font-size">Font Size:</label>
+            <label for="font-family">Font:</label>
+            <select id="font-family">
+                <option value="Courier">Courier</option>
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <!-- Add more options as needed -->
+            </select>
+            <input type="number" id="font-size" min="10" max="30" value="14">
+            <label for="language">Language:</label>
+            <select id="language">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="xml">HTML</option>
+            </select>
+            <button id="download">Download as PNG</button>
+            <button id="theme-toggle">Light Mode</button>
+        </div>
+        <div id="code-snippet"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

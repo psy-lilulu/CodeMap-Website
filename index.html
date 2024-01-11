@@ -5,6 +5,12 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
     <link rel="icon" href="images/WebsiteLogo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/solarized.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/eclipse.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/twilight.min.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/display/panel.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
@@ -29,50 +35,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/swift/swift.min.js"></script>
 </head>
 <body>
-    <div class="center-box">
-        <div class="settings">
-            <label for="theme">Theme:</label>
-            <select id="theme-select">
-                <option value="dracula">Dracula</option>
-                <option value="ambiance">Ambiance</option>
-                <option value="material">Material</option>
-                <option value="neat">Neat</option>
-              </select>
+    <div class="gif-box">
+        <img src="images/gg/gi.gif" alt="GIF">
+        <p>If you like this tool and want to support its development, consider making a donation</p>
 
-            <label for="font-size">Font Size:</label>
-            <label for="font-family">Font:</label>
-            <select id="font-family">
-                <option value="Courier">Courier</option>
-                <option value="Arial">Arial</option>
-                <option value="Verdana">Verdana</option>
-                <!-- Add more options as needed -->
-            </select>
-            <input type="number" id="font-size" min="10" max="30" value="14">
-            <label for="language">Language:</label>
-            <select id="language">
-                <option value="javascript">JavaScript</option>
-                <option value="python">Python</option>
-                <option value="xml">HTML</option>
-                <option value="clike">C/C++</option>
-                <option value="ruby">Ruby</option>
-                <option value="go">Go</option>
-                <option value="php">PHP</option>
-                <option value="swift">Swift</option>
-              </select>
-              <button id="copy" class="material-icons">content_copy</button>            \
-              <button id="download">Download as PNG</button>
-              <button id="theme-toggle">Light Mode</button>
-              <button id="start-capture">Auto Type</button>
-        <style>
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,   
-  'GRAD' 0,
-  'opsz' 24
-}
-</style>        </div>
-        <div id="code-snippet"></div>
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="Miisan" data-color="#FFDD00" data-emoji="☕"  data-font="Poppins" data-text="buy me a coffee!" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+</div>
+    <div class="center-box">
+        <div class="editor-container"> <!-- New flex container -->
+            <div class="settings">
+                <label for="theme">Theme:</label>
+                <select id="theme-select">
+                    <option value="dracula">Dracula</option>
+                    <option value="ambiance">Ambiance</option>
+                    <option value="material">Material</option>
+                    <option value="neat">Neat</option>
+                    <option value="solarized dark">Solarized Dark</option>
+                    <option value="solarized light">Solarized Light</option>
+                    <option value="monokai">Monokai</option>
+                    <option value="eclipse">Eclipse</option>
+                    <option value="twilight">Twilight</option>
+                </select>
+                <label for="font-family">Font:</label>
+                <select id="font-family">
+                    <option value="Courier">Courier</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="VT323-Regular">Pixel</option>
+                </select>
+                
+                <input type="number" id="font-size" min="10" max="30" value="14">
+                <label for="language">Language:</label>
+                <select id="language">
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="xml">HTML</option>
+                    <option value="clike">C/C++</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="go">Go</option>
+                    <option value="php">PHP</option>
+                    <option value="swift">Swift</option>
+                </select>
+                <button id="copy" class="material-icons">content_copy</button>            
+                <button id="download">Download as PNG</button>
+                <button id="theme-toggle">Light Mode</button>
+                <button id="start-capture">Auto Type</button>
+                <button id="focus-mode">Focus Mode</button>
+            </div>
+            <input type="text" id="user-link" placeholder="Enter your link">
+            <div id="display-link"></div>
+            <div id="code-snippet"></div>
+        </div>
+     
+        </div>
     </div>
     <div class="developer">Developed by miisan</div>
     <script src="script.js"></script>

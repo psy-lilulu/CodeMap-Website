@@ -108,3 +108,8 @@ document.getElementById("copy").addEventListener("click", function() {
     console.error('Could not copy text: ', err);
   });
 });
+
+
+particlesJS.load('particles-js', 'path_to/particles.json', function() {
+  console.log('particles.js loaded - callback');
+});

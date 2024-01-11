@@ -7,6 +7,8 @@ var editor = CodeMirror(document.getElementById("code-snippet"), {
   styleActiveLine: true, // Highlight the active line
 });
 
+document.body.style.backgroundImage = "url('Images/BackgroundDark.png')"; // replace with your dark theme background image
+
 // Default JavaScript code
 var defaultCode = `// This is a simple JavaScript code snippet for showcase
 function greet(name) {
@@ -53,8 +55,6 @@ document.getElementById("theme-select").addEventListener("change", function() {
   editor.setOption("theme", this.value);
 });
 
-
-
 document.getElementById("download").addEventListener("click", function() {
   var container = document.querySelector(".CodeMirror"); // select the CodeMirror editor
 
@@ -83,7 +83,28 @@ document.getElementById("download").addEventListener("click", function() {
     });
 });
 document.getElementById('theme-toggle').addEventListener('click', function() {
-  document.body.classList.toggle('light-theme');
+  var themeToggle = document.getElementById('theme-toggle');
+  if (document.body.classList.contains('light-theme')) {
+      document.body.classList.remove('light-theme');
+      document.body.classList.add('dark-theme');
+      document.body.style.backgroundImage = "url('Images/BackgroundDark.png')"; // Change this to your dark theme background image
+      editor.setOption("theme", "default"); // Change this to your light theme
+      themeToggle.textContent = 'Dark Theme'; // Update the button text
+  } else {
+      document.body.classList.remove('dark-theme');
+      document.body.classList.add('light-theme');
+      document.body.style.backgroundImage = "url('Images/BackgroundLight.png')"; // Change this to your light theme background image
+      editor.setOption("theme", "dracula");
+      themeToggle.textContent = 'Light Theme'; // Update the button text
+  }
 });
 
 
+document.getElementById("copy").addEventListener("click", function() {
+  var code = editor.getValue();
+  navigator.clipboard.writeText(code).then(function() {
+    console.log('Copying to clipboard was successful!');
+  }, function(err) {
+    console.error('Could not copy text: ', err);
+  });
+});

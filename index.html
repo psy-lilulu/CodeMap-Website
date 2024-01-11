@@ -5,29 +5,39 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
     <link rel="icon" href="images/WebsiteLogo.png" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/addon/display/panel.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/monokai.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/monokai.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/eclipse.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/dracula.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/material.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/ambiance.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/material.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/neat.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/python/python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/xml/xml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mattboldt/typed.js@2.0.11/lib/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/ruby/ruby.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/go/go.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/php/php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/swift/swift.min.js"></script>
 </head>
 <body>
     <div class="center-box">
         <div class="settings">
             <label for="theme">Theme:</label>
             <select id="theme-select">
-                <option value="default">Default</option>
-                <option value="monokai">Monokai</option>
-                <option value="eclipse">Eclipse</option>
                 <option value="dracula">Dracula</option>
-            </select>
+                <option value="ambiance">Ambiance</option>
+                <option value="material">Material</option>
+                <option value="neat">Neat</option>
+              </select>
             <label for="font-size">Font Size:</label>
             <label for="font-family">Font:</label>
             <select id="font-family">
@@ -42,12 +52,27 @@
                 <option value="javascript">JavaScript</option>
                 <option value="python">Python</option>
                 <option value="xml">HTML</option>
-            </select>
-            <button id="download">Download as PNG</button>
-            <button id="theme-toggle">Light Mode</button>
-        </div>
+                <option value="clike">C/C++</option>
+                <option value="ruby">Ruby</option>
+                <option value="go">Go</option>
+                <option value="php">PHP</option>
+                <option value="swift">Swift</option>
+              </select>
+              <button id="copy" class="material-icons">content_copy</button>            \
+              <button id="download">Download as PNG</button>
+              <button id="theme-toggle">Light Mode</button>
+        <style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+</style>        </div>
         <div id="code-snippet"></div>
     </div>
+    <div class="developer">Developed by miisan</div>
     <script src="script.js"></script>
 </body>
 </html>

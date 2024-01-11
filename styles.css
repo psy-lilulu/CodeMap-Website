@@ -1,88 +1,169 @@
 body {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100vh;
-                    margin: 0;
-                    background-color: #f0f0f0;
-                    background-image: url('images/background.png');
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    color: #333;
-                    font-family: 'Roboto', sans-serif;
-                }
-                
-                .center-box {
-                    width: 50%;
-                    padding: 30px;
-                    background-color: #fff;
-                    border-radius: 10px;
-                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-                    transition: all 0.3s ease;
-                }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+}
 
-                .settings {
-                    display: flex;
-                    flex-wrap: wrap;
-                    align-items: center; /* Vertically aligns items in the center */
-                    justify-content: space-between; /* Distributes items evenly in the horizontal direction */
-                    margin-bottom: 30px;
-                }
-                .settings label {
-                    flex: 0 0 auto; /* Don't grow or shrink, and use the width of the content */
-                    margin-right: 5px; /* Reduced margin-right */
-                    text-align: right;
-                }
-                
-                .settings select, .settings input, .settings button {
-                    flex: 0 0 auto; /* Don't grow or shrink, and use the width of the content */
-                    padding: 5px; /* Reduced padding */
-                    margin: 5px; /* Reduced margin */
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    background-color: #f9f9f9;
-                    color: #333;
-                    font-size: 14px; /* Reduced font size */
-                    transition: all 0.3s ease;
-                }
+.center-box {
+    width: 50%;
+    padding: 30px;
+    background-color: var(--box-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
 
-                .CodeMirror {
-                    border: 1px solid #ddd;
-                    border-radius: 4px;
-                    font-size: 20px;
-                    transition: all 0.3s ease;
-                }
-                
-                .CodeMirror-line {
-                    line-height: 1.5;
-                }
-                
-                .CodeMirror-cursor {
-                    border-left: 2px solid #000;
-                }
-                
-                #myEditor .CodeMirror {
-                    font-size: 20px !important;
-                }
+.settings label {
+    flex: 0 0 auto;
+    margin-right: 5px;
+    text-align: right;
+}
 
-                :root {
-                    --background-color: #282c34;
-                    --text-color: #fff;
-                    --box-color: #3c4049;
-                  }
-                  
-                  body.light-theme {
-                    --background-color: #f0f0f0;
-                    --text-color: #333;
-                    --box-color: #fff;
-                  }
-                  
-                  body {
-                    background-color: var(--background-color);
-                    color: var(--text-color);
-                  }
-                  
-                  .center-box {
-                    background-color: var(--box-color);
-                  }
+.settings select, .settings input, .settings button {
+    flex: 0 0 auto;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.settings select:hover, .settings input:hover, .settings button:hover {
+    background-color: #ddd;
+    transition: all 0.3s ease;
+}
+
+.settings select:active, .settings input:active, .settings button:active {
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+}
+
+.CodeMirror {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.CodeMirror-line {
+    line-height: 1.5;
+}
+
+.CodeMirror-cursor {
+    border-left: 2px solid #000;
+}
+
+#myEditor .CodeMirror {
+    font-size: 20px !important;
+}
+
+:root {
+    --background-color: #282c34;
+    --text-color: #fff;
+    --box-color: #3c4049;
+    --background-image: url('images/BackgroundDark.png');
+}
+
+body.light-theme {
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --box-color: #fff;
+    --background-image: url('images/BackgroundLight.png');
+}
+
+
+#copy {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.CodeMirror-scroll::-webkit-scrollbar {
+    width: 12px;
+}
+
+.CodeMirror-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.CodeMirror-scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+.CodeMirror-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+button {
+    background-color: blue;
+    transition: background-color 0.5s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: red;
+    transform: scale(1.1);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+body.light-theme .settings select, 
+body.light-theme .settings input, 
+body.light-theme .settings button {
+    color: #fff;
+    background-color: #333;
+}
+
+body.light-theme .settings select:hover, 
+body.light-theme .settings input:hover, 
+body.light-theme .settings button:hover {
+    background-color: #555;
+}
+
+body.light-theme .settings select:active, 
+body.light-theme .settings input:active, 
+body.light-theme .settings button:active {
+    background-color: #222;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+
+.developer {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #aaa;
+    font-family: 'Fira Code', monospace; 
+}

@@ -97,7 +97,7 @@ document.getElementById("download").addEventListener("click", function() {
                     container.style.height = 'auto';
                     container.style['max-height'] = '1000px'; // Set a maximum height
                 
-                    domtoimage.toBlob(container, { scale: 3 }) // Increase the scale to 3 for higher quality
+                    domtoimage.toBlob(container, { scale: 10}) // Increase the scale to 3 for higher quality
                         .then(function (blob) {
                             // Reset the height of the editor
                             container.style.height = originalHeight;

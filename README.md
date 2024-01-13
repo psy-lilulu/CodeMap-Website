@@ -1,8 +1,10 @@
 # CodeMap
- Website for downloading and uploading better code snipits 
+https://psy-lilulu.github.io/CodeMap-Website/
+Website developed with html,css and java script for downloading better code snippets. 
+
 
 ## **Features**
-
+Themes
 ![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gka7s3msf423rl865bjw.png)
 
 
@@ -15,3 +17,5 @@
 this is how the image snippet looks like (i have yet to make to high resolution) 
 ![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/e7uk9ergzadqus5p3op6.png)
 
+**Contribution**
+Contribution is welcomed! 

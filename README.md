@@ -1,5 +1,4 @@
 # CodeMap
-https://psy-lilulu.github.io/CodeMap-Website/
 Website developed with html,css and java script for downloading better code snippets. 
 
 
